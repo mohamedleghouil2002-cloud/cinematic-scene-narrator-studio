@@ -1,33 +1,33 @@
 ---
 name: cinematic-scene-narrator-studio
-description: Build and refine an interactive web studio that turns stories, real-life incidents, or ideas into keyword-matched scenes with expressive narrator voices, mood atmospheres, and video or script export. Use when building or debugging a story-to-scene studio, 3D or stylized animation scene generator, multilingual narrator voice pipeline, or scene/video exporter.
+description: Build and refine an interactive web studio that turns stories, real-life incidents, or ideas into keyword-matched scenes with expressive narrator voices, mood atmospheres, and video or script export. Use when building or debugging a story-to-scene studio, cartoon 3D or realistic scene generator, multilingual narrator voice pipeline, or 1080p/2K/4K scene and video exporter.
 ---
 
 # Cinematic Scene Narrator Studio
 
 ## Summary
 
-Guide the generation and refinement of an interactive web studio that converts stories, incidents, or ideas into sequenced visual scenes paired with a mood-aware narrator voice, background atmosphere, and video or script export. Keep browser prototypes resilient and realistic about browser 3D and speech engine limits while supporting external AI media or voice APIs for production quality.
+Guide the generation and refinement of an interactive web studio that converts stories, incidents, or ideas into sequenced visual scenes with a visual style switcher (cartoon 3D inspired by Pixar/Disney or realistic film style), target video export resolutions up to 2K and 4K, smooth human-like AI narration without abrupt stops or robotic cadence, and script export. Keep browser prototypes transparent about browser 3D, high-resolution export, and speech engine limits while supporting external AI media or voice integrations.
 
 ## When to Use
 
 Use this skill in these situations:
 
-* Building or iterating on a story-to-scene or moment-to-scene web application.
-* Mapping story keywords and moods (such as car, driving, rain, night, house, door, sad, tense, scary, or dramatic) to matching visual elements and lighting.
-* Configuring multilingual narration (English, French, and other languages), pacing, mood adjustments, external realistic TTS APIs, or uploaded audio tracks.
-* Debugging WebGL/Three.js rendering, `MediaRecorder` scene/video export, or browser speech/audio errors.
+* Building or iterating on a story-to-scene or moment-to-scene web studio.
+* Adding a visual style switcher between cartoon 3D (Pixar/Disney inspired) and realistic film scenes, plus mood and weather staging (dark clouds and rain for sad or tense scenes, bright warm light for happy scenes).
+* Configuring smooth, continuous human-like narration via uploaded audio (`MP3` or `WAV`), realistic TTS API keys, or fallback browser speech without random mid-sentence stops.
+* Adding `1080p`, `2K`, or `4K` video export options, script export, or debugging WebGL, `AudioContext`, and `MediaRecorder` behavior.
 
 ## Steps
 
-1. **Scope Visual Style and Realism Honestly**: Set clear expectations between browser-rendered 3D or stylized scenes (Three.js or Canvas) and high-detail animation styles (such as warm Pixar or Disney inspired character and environment design). Use browser 3D for fast interactive prototypes, and output structured prompts or external media hooks when full cinematic character or environment detail is needed.
-2. **Map Story Elements and Mood to the Scene**: Parse story text into clear scenes and extract visual cues (vehicles, weather, time of day, locations, characters) along with emotional mood (`tense`, `scary`, `sad`, `dramatic`). Adjust lighting, color tone, camera motion, and subtle ambient audio to match each scene.
-3. **Configure Multilingual Voice and Pacing**: Support target narration languages (especially English and French, plus other available voices) with safe voice loading (`onvoiceschanged`), short sentence pauses, and moderate pitch/rate tuning so speech avoids robotic distortion. Include an optional realistic voice API key field (such as ElevenLabs) and an audio file upload option (`MP3` or `WAV`) for human-like delivery.
-4. **Build Reliable Video and Script Export**: Configure WebGL canvases with `preserveDrawingBuffer: true` when recording via `canvas.captureStream` and `MediaRecorder`, auto-detect a supported `mimeType`, mix `AudioContext` output when available, and provide script (`txt`) export plus clear status indicators and `try/catch` error handling.
-5. **Test and Iterate with Concrete Stories**: Validate changes using multi-scene stories (such as driving in rain, night tension, or a quiet emotional return) and fix the exact broken component first before adding extra features.
+1. **Support Cartoon 3D and Realistic Style Modes**: Provide a clear style switcher between cartoon 3D (warm, expressive stylized animation inspired by Pixar and Disney films) and realistic film style (lifelike people, vehicles, lighting, and weather). Because lightweight browser scripts cannot render feature-film animation or photorealism on their own, render an interactive scene prototype in the browser while generating ready-to-use style-matched prompts or external AI generation hooks for full visual fidelity.
+2. **Stage Mood, Weather, and Camera Motion**: Parse story text into scenes and extract visual cues and emotions (`sad`, `tense`, `scary`, `dramatic`, `happy`). Shift skies, clouds, rain, lighting, color tone, and camera movement to fit the emotion and maturity of a short film.
+3. **Deliver Smooth, Human-Like Narration**: Prioritize natural, continuous human-like speech without robotic tone or unexpected mid-sentence pauses. Support uploading pre-generated audio files (`MP3` or `WAV`) synced to playback, entering an optional realistic AI voice API key, and pairing with built-in `Web Audio` ambient soundscapes, keeping browser speech as a clearly labeled fallback with smooth sentence flow.
+4. **Provide 1080p, 2K, and 4K Export Options**: Include export resolution selection (`1080p`, `2K`, `4K`) alongside video recording (`canvas.captureStream` with `preserveDrawingBuffer: true`, `MediaRecorder` with automatic `mimeType` detection, and `AudioContext` mixing when available) and script export, while clearly explaining browser memory/resolution limits and wrapping export logic in `try/catch` with status feedback.
+5. **Test and Iterate One Component at a Time**: Validate using concrete multi-scene stories (such as a rainy night drive, an emotional moment, or a bright happy shift) and fix the exact broken component first before adding new features.
 
 ## Gotchas
 
-* Browser built-in speech engines (`Web Speech API`) often sound robotic or choppy in Arabic and other languages, and `MediaRecorder` may not capture system speech audio directly in every browser. Clearly separate prototype browser speech from external realistic TTS or uploaded voice tracks.
-* Complex Pixar-like characters, hair, and lighting cannot be fully rendered from scratch in a lightweight browser script. Keep browser 3D clean and stable, and generate rich visual prompts or external AI assets when high visual fidelity is the goal.
-* Missing external API keys or blocked third-party asset URLs easily break prototypes. Keep local fallback logic and `try/catch` guards active so the studio stays usable on first load.
+* Lightweight browser 3D and `4K` canvas recording can strain memory or frame rates depending on the device and browser. Clearly surface export resolution notes, keep a responsive fallback, and generate ready-to-copy visual prompts when external AI video tools produce the final `2K`/`4K` render.
+* Browser built-in speech (`Web Speech API`) can sound robotic, choppy, or drop/pause unexpectedly, and system speech may not always record into `MediaRecorder`. Always support uploaded `MP3`/`WAV` tracks, external realistic voice APIs, and `Web Audio` ambience with clear status indicators.
+* Audio and recording APIs can fail without user interaction or error guards. Unlock audio on user action, use `try/catch`, and keep local fallbacks working on first load.
